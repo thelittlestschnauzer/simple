@@ -31,3 +31,15 @@ label {
 .btn:hover {
   color: #4EC5C1;
 }
+
+.link-for-login {
+  text-align: center;
+  padding-top: 20px;
+  color: #30415D;
+  a {
+    color: #4EC5C1;
+  }
+  a:hover {
+    color: #C0B283;
+  }
+}
