@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :categories
   resources :appointments
+  resources :categories
+   
+
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   devise_scope :user do
