@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :categories
+  resources :appointments
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   devise_scope :user do
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/', to: 'devise/registrations#new'
   end
-
+  get 'today', to: 'pages#index'
   root to: 'registrations#new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -4,7 +4,7 @@
 
 html {
   font-size: 62.5%;
-  min-height: 200%;
+  min-height: 300%;
 }
 
 body {
@@ -31,14 +31,9 @@ ul {
   list-style-type: none;
 }
 
-a {
-  color: #43C5C1;
-  text-decoration: none;
-}
-
 a:hover, a:active, a:link, a:visited {
   text-decoration: none;
-  color: #C0B283;
+  color: #43C5C1;
 }
 
 .control-label {

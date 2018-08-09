@@ -1,0 +1,12 @@
+<%= form_for @appointment do |f| %>
+  <%= f.text_field :title, class: 'form-control', placeholder: 'title of appointment' %>
+  <%= f.text_area :description, class: 'form-control', placeholder: 'description of appointment' %>
+  <%= f.datetime_field :start_time, class: 'form-control', placeholder: 'Time appointment begins' %>
+  <%= f.datetime_field :end_time, class: 'form-control', placeholder: 'Time appointment ends' %>
+  <%= f.check_box :allDay, class: 'form-control', style: 'float:left;' %><br></br>
+  <%= f.label :allDay, 'All Day', style: 'float:left;' %> <br></br>
+  <p class="check-box">
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+  </p>
+  <%= f.submit class: 'btn' %>
+<% end %>
