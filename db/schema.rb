@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_08_233522) do
+ActiveRecord::Schema.define(version: 2018_08_09_024934) do
 
   create_table "appointment_categories", force: :cascade do |t|
     t.integer "appointment_id"
@@ -27,12 +27,27 @@ ActiveRecord::Schema.define(version: 2018_08_08_233522) do
     t.boolean "allDay", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "name"
+    t.integer "list_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "status", default: 0
   end
 
   create_table "users", force: :cascade do |t|

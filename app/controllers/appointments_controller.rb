@@ -36,6 +36,13 @@ class AppointmentsController < ApplicationController
   private
 
   def appointment_params
-    params.require(:appointment).permit(:title, :description, :start_time, :end_time, :allDay, category_ids:[], categories_attributes: [:name])
+    params.require(:appointment).permit(:title,
+                                        :description,
+                                        :start_time,
+                                        :end_time,
+                                        :allDay,
+                                        category_ids:[],
+                                        categories_attributes: [:name])
+                                        .merge(user_id: current_user.id)
   end
 end

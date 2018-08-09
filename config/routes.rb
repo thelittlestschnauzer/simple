@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
+
+  resources :lists do
+    resources :tasks
+  end
+  
   resources :appointments
   resources :categories
-   
+
 
   devise_for :users, :controllers => { :registrations => "registrations" }
 
