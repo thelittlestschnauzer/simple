@@ -1,5 +1,6 @@
 class AppointmentsController < ApplicationController
-
+  before_action :authenticate_user!
+  
 
   def index
     @appointment = Appointment.new
@@ -45,5 +46,9 @@ class AppointmentsController < ApplicationController
                                         category_ids:[],
                                         categories_attributes: [:name])
                                         .merge(user_id: current_user.id)
+  end
+
+  def require_login
+    return head(:forbidden) unless session.include? :user_id
   end
 end

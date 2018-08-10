@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @list = List.new
@@ -20,9 +21,23 @@ class ListsController < ApplicationController
     @task = Task.new
   end
 
+  def update
+    @list = List.find(params[:id])
+    @list.update
+
+    redirect_to lists_path(@list)
+  end
+
+  def destroy
+    @list = List.find(params[:id])
+    @list.update(list_params)
+
+    redirect_to lists_path(@list)
+  end
+
   private
 
   def list_params
-    params.require(:list).permit(:title)
+    params.require(:list).permit(:title,).merge(user_id: current_user.id)
   end
 end

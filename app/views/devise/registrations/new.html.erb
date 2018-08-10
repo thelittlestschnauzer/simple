@@ -5,6 +5,7 @@
                             as: resource_name,
                             url: registration_path(resource_name)) do |f| %>
 
+          <%= devise_error_messages! %>
           <%= f.text_field :name,
                            placeholder: 'name',
                            class: 'form-control' %>
